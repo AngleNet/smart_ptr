@@ -51,8 +51,12 @@ private:
 
     T * px;
 
+    //Does not support copy and assign
     scoped_ptr(scoped_ptr const &);
     scoped_ptr & operator=(scoped_ptr const &);
+    //No declaration of move constructor and move assignment,
+    //So there is no way of transferring ownership. If you 
+    //want this feature, use std::unique_ptr instead.
 
     typedef scoped_ptr<T> this_type;
 
